@@ -8,7 +8,7 @@ serviceRest.use(bodyParser.json());
 
 serviceRest.post('/RestHome', function(req, res) {
     
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.number_id ? req.body.result.parameters.number_id : "consume services"
+    var speech = req.body.result.parameters.number_id ? req.body.result.parameters.number_id : "consume services"
     
     return res.json({
       speech: speech,
