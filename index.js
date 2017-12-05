@@ -8,7 +8,7 @@ serviceRest.use(bodyParser.json());
 
 serviceRest.post('/RestHome', function(req, res) {
     var parameters = req.body.result.parameters;
-    var idUser = parameters.numberID ? parameters.numberID : "Consume rest services"
+    var idUser = parameters.numberID;
     
     
     return res.json({
