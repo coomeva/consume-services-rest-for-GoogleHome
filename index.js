@@ -15,14 +15,6 @@ serviceRest.post('/RestHome', function(req, res) {
    
     if(speech){
        callConsultAssociate(speech).then((resultado) => {
-           if(resultado == null){
-              var speech2 = 'Err, there are no data ';
-                 return res.json({
-                    speech: speech2,
-                    displayText: speech2,
-                    source: 'rest-for-googlehome'
-                 });
-           };
            if(resultado){
                var speech3 = ' ' + resultado;
                  return res.json({
