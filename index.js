@@ -15,7 +15,7 @@ serviceRest.post('/RestHome', function(req, res) {
    
     if(speech){
        callConsultAssociate(speech).then((resultado) => {
-           if(resultado === null){
+           if(resultado == null){
               var speech2 = 'Err, there are no data ';
                  return res.json({
                     speech: speech2,
