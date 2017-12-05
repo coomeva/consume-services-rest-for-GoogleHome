@@ -11,8 +11,8 @@ serviceRest.post('/RestHome', function(req, res) {
     var user2 = "consume services"
     
     return res.json({
-      speech: User2,
-      displayText: User2,
+      speech: user2,
+      displayText: user2,
       source: 'rest-for-googlehome'
     });
 });
