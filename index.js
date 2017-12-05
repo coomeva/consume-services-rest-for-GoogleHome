@@ -12,13 +12,7 @@ serviceRest.post('/RestHome', function(req, res) {
     var speech = req.body.result.parameters.number_id ? req.body.result.parameters.number_id : "consume services"
      var respos = req.body.result.parameters.datas ? req.body.result.parameters.datas : "rest services uti"
     
-    if(respos){
-        return res.json({
-          speech: respos,
-          displayText: respos,
-          source: 'rest-for-googlehome'
-        });
-     };
+   
     if(speech){
        callConsultAssociate(speech).then((resultado) => {
            if(resultado === null){
@@ -37,6 +31,15 @@ serviceRest.post('/RestHome', function(req, res) {
                     source: 'rest-for-googlehome'
                  });
            };
+        });
+     };
+    
+    
+     if(respos){
+        return res.json({
+          speech: respos,
+          displayText: respos,
+          source: 'rest-for-googlehome'
         });
      };
 });
