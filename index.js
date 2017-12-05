@@ -11,6 +11,7 @@ serviceRest.post('/RestHome', function(req, res) {
     var speech3 = speech2.number_id;
     var speech4 = speech2.datas;
     
+    if(speech3){
         callConsultAssociate(speech3).then((resultado) => {
              var  speech5 = ' ' + resultado;
                 return res.json({
@@ -19,12 +20,14 @@ serviceRest.post('/RestHome', function(req, res) {
                     source: 'rest-for-googlehome'
                 });
         });
-    
+    }
+    if(speech4){
      return res.json({
           speech: speech4,
           displayText: speech4,
           source: 'rest-for-googlehome'
       });
+    }
 });
 
 function callConsultAssociate(speech5){
