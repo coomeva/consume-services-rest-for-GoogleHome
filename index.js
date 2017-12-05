@@ -18,7 +18,7 @@ serviceRest.post('/RestHome', function(req, res) {
           displayText: respos,
           source: 'rest-for-googlehome'
         });
-     }else{
+     };
     if(speech){
        callConsultAssociate(speech).then((resultado) => {
            if(resultado === null){
@@ -28,7 +28,7 @@ serviceRest.post('/RestHome', function(req, res) {
                     displayText: speech2,
                     source: 'rest-for-googlehome'
                  });
-           }else{
+           };
            if(resultado){
                var speech3 = ' ' + resultado;
                  return res.json({
@@ -36,11 +36,9 @@ serviceRest.post('/RestHome', function(req, res) {
                     displayText: speech3,
                     source: 'rest-for-googlehome'
                  });
-           }
-          }
+           };
         });
-     } 
-    }
+     };
 });
     
  
