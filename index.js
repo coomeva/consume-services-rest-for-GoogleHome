@@ -7,11 +7,12 @@ serviceRest.use(bodyParser.urlencoded({ extended: true }));
 serviceRest.use(bodyParser.json());
 
 serviceRest.post('/RestHome', function(req, res) {
-    var data = 'Consume rest services'
+    var parameters = req.body.result.parameters.numberID ? req.body.result.parameters.numberID : "Consume rest services"
+    
     
     return res.json({
-      speech: data,
-      displayText: data,
+      speech: parameters,
+      displayText: parameters,
       source: 'rest-for-googlehome'
     });
 });
