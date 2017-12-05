@@ -9,7 +9,7 @@ serviceRest.use(bodyParser.json());
 serviceRest.post('/RestHome', function(req, res) {
     let parameters = req.body.result.parameters;
     var idUser = '' + parameters.numberID;
-    
+    var user2 = 'uuuuu'
     
     return res.json({
       speech: idUser,
