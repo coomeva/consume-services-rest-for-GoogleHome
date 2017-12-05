@@ -7,31 +7,26 @@ serviceRest.use(bodyParser.urlencoded({ extended: true }));
 serviceRest.use(bodyParser.json());
 
 serviceRest.post('/RestHome', function(req, res) {
-    var speech3 = " ";
-    switch(req.body.result.parameters.toLowerCase()){
-        case "number_id":
-            callConsultAssociate(speech).then((resultado) => {
-               speech3 = ' ' + resultado;
-            });
-        break;
-        case "datas":
-            speech3 = "rest consume services";
-        break;
-    }
+    var speech2 = req.body.result.parameters;
+    var speech3 = speech2.number_id;
+    var speech4 = speech2.datas;
     
-    return res.json({
-        speech: speech3,
-        displayText: speech3,
-        source: 'rest-for-googlehome'
-    });
-}
+        callConsultAssociate(speech3).then((resultado) => {
+             var  speech5 = ' ' + resultado;
+                return res.json({
+                    speech: speech5,
+                    displayText: speech5,
+                    source: 'rest-for-googlehome'
+                });
+        });
+});
 
-function callConsultAssociate(speech){
+function callConsultAssociate(speech5){
     return new Promise((resolve, reject) => {
         var http = require('http');
         var host = 'ec2-184-73-133-117.compute-1.amazonaws.com';
         var port = '8080';
-        var path = '/consultacedula/services/rest/' + speech;
+        var path = '/consultacedula/services/rest/' + speech5;
 
         http.get({host: host, port: port, path: path}, (resp) =>{
             var body = '';
