@@ -7,26 +7,23 @@ serviceRest.use(bodyParser.urlencoded({ extended: true }));
 serviceRest.use(bodyParser.json());
 
 serviceRest.post('/RestHome', function(req, res) {
+    var speech3 = " ";
     switch(req.body.result.parameters){
         case "number_id":
             callConsultAssociate(speech).then((resultado) => {
-               var speech3 = ' ' + resultado;
-                 return res.json({
-                    speech: speech3,
-                    displayText: speech3,
-                    source: 'rest-for-googlehome'
-                 });
+               speech3 = ' ' + resultado;
             });
         break;
         case "datas":
-            var respos = "rest consume services"
-              return res.json({
-                  speech: respos,
-                  displayText: respos,
-                  source: 'rest-for-googlehome'
-              });
+            speech3 = "rest consume services"
         break;
     }
+    
+    return res.json({
+        speech: speech3,
+        displayText: speech3,
+        source: 'rest-for-googlehome'
+    });
 }
 
 function callConsultAssociate(speech){
