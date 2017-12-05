@@ -22,11 +22,14 @@ serviceRest.post('/RestHome', function(req, res) {
         });
     }
     if(speech4){
-     return res.json({
-          speech: speech4,
-          displayText: speech4,
-          source: 'rest-for-googlehome'
-      });
+        apinasa(speech4).then((resultado2) => {
+            var speech6 = ' ' + resultado2;
+         return res.json({
+              speech: speech6,
+              displayText: speech6,
+              source: 'rest-for-googlehome'
+          });
+       });
     }
 });
 
@@ -50,6 +53,31 @@ function callConsultAssociate(speech5){
             });
             resp.on('error', (error) => {
                 reject(error);
+            });
+        });
+    });
+}
+
+
+function apinasa(speech4){
+    return new Promise((resol, reje) => {
+        var https = require('https');
+        var host2 = 'api.nasa.gov';
+        var path2 = '/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo';
+
+        https.get({host: host2, path: path2}, (respp) => {
+            var body2 = '';
+        respp.on('data', (chunk) => {
+            body2 += chunk.toString();
+        });
+        respp.on('end', () => {
+            var r = JSON.parse(body2);
+            var name2 = r.title;            
+            let output2 = 'api nasa \n' + name2;
+                resol(output2);
+           });
+            respp.on('error', (error) => {
+                reje(error);
             });
         });
     });
