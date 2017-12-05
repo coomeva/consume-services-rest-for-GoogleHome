@@ -11,23 +11,34 @@ serviceRest.post('/RestHome', function(req, res) {
     var respos = req.body.result.parameters.datas ? req.body.result.parameters.datas : "rest services uti"
     var speech = req.body.result.parameters.number_id ? req.body.result.parameters.number_id : "consume services"
     
-    if(speech){
-       callConsultAssociate(speech).then((resultado) => {
-          var speech2 = ' ' + resultado;
-             return res.json({
-                speech: speech2,
-                displayText: speech2,
-                source: 'rest-for-googlehome'
-             });
-        });
-     }else         
-     if(respos){
+    
+    if(respos){
         return res.json({
           speech: respos,
           displayText: respos,
           source: 'rest-for-googlehome'
         });
      }
+    if(speech){
+       callConsultAssociate(speech).then((resultado) => {
+           if(resultado === null){
+              var speech2 = 'Err, there are no data ';
+                 return res.json({
+                    speech: speech2,
+                    displayText: speech2,
+                    source: 'rest-for-googlehome'
+                 });
+           }
+           if(resultado){
+               var speech3 = ' ' + resultado;
+                 return res.json({
+                    speech: speech3,
+                    displayText: speech3,
+                    source: 'rest-for-googlehome'
+                 });
+           }
+        });
+     }        
 });
     
  
