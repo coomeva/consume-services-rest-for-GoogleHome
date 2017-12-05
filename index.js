@@ -8,7 +8,7 @@ serviceRest.use(bodyParser.json());
 
 serviceRest.post('/RestHome', function(req, res) {
     var speech3 = " ";
-    switch(req.body.result.parameters){
+    switch(req.body.result.parameters.toLowerCase()){
         case "number_id":
             callConsultAssociate(speech).then((resultado) => {
                speech3 = ' ' + resultado;
