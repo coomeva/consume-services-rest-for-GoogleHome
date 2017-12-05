@@ -15,7 +15,7 @@ serviceRest.post('/RestHome', function(req, res) {
             });
         break;
         case "datas":
-            speech3 = "rest consume services"
+            speech3 = "rest consume services";
         break;
     }
     
