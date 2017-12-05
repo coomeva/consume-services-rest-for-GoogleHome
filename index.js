@@ -7,7 +7,7 @@ serviceRest.use(bodyParser.urlencoded({ extended: true }));
 serviceRest.use(bodyParser.json());
 
 serviceRest.post('/RestHome', function(req, res) {
-    var speech2 = req.body.result.parameters;
+    var speech2 = req.body.result.parameters ? req.body.result.parameters : "services datas"
     var speech3 = speech2.number_id;
     var speech4 = speech2.datas;
     
