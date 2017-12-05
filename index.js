@@ -19,6 +19,12 @@ serviceRest.post('/RestHome', function(req, res) {
                     source: 'rest-for-googlehome'
                 });
         });
+    
+     return res.json({
+          speech: speech4,
+          displayText: speech4,
+          source: 'rest-for-googlehome'
+      });
 });
 
 function callConsultAssociate(speech5){
