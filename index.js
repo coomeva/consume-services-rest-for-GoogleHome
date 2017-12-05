@@ -72,7 +72,7 @@ function apinasa(speech4){
         });
         respp.on('end', () => {
             var r = JSON.parse(body2);
-            var name2 = r.title;            
+            var name2 = r.copyright;            
             let output2 = 'api nasa \n' + name2;
                 resol(output2);
            });
