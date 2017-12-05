@@ -1,0 +1,6 @@
+{
+"name": "rest-for-googlehome",
+"description": "services rest for google home",
+"repository": "https://github.com/coomeva/consume-services-rest-for-GoogleHome.git",
+"keywords": ["api.ai", "dialogflow", "natural language"]
+}
