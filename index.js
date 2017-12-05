@@ -12,8 +12,8 @@ serviceRest.post('/RestHome', function(req, res) {
     var user2 = "uuuuu"
     
     return res.json({
-      speech: idUser2,
-      displayText: idUser2,
+      speech: User2,
+      displayText: User2,
       source: 'rest-for-googlehome'
     });
 });
