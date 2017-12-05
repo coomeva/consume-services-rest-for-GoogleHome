@@ -15,7 +15,7 @@ serviceRest.post('/RestHome', function(req, res) {
    
     if(speech){
        callConsultAssociate(speech).then((resultado) => {
-           if(resultado){
+            if(resultado){
                var speech3 = ' ' + resultado;
                  return res.json({
                     speech: speech3,
@@ -25,7 +25,7 @@ serviceRest.post('/RestHome', function(req, res) {
            };
         });
      };
-    
+    break;
     
      if(respos){
         return res.json({
@@ -35,7 +35,7 @@ serviceRest.post('/RestHome', function(req, res) {
         });
      };
 });
-    
+   break;
  
 
 function callConsultAssociate(speech){
