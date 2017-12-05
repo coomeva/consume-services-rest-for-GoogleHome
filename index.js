@@ -7,8 +7,8 @@ serviceRest.use(bodyParser.urlencoded({ extended: true }));
 serviceRest.use(bodyParser.json());
 
 serviceRest.post('/RestHome', function(req, res) {
-    var parameters = req.body.result.parameters;
-    var idUser = parameters.numberID;
+    let parameters = req.body.result.parameters;
+    var idUser = '' + parameters.numberID;
     
     
     return res.json({
